@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sarah &amp; Hatim - Wedding Invitation</title>
+<meta property="og:title" content="Sarah &amp; Hatim - Wedding Invitation"><meta property="og:description" content="Customized Invitation Card - For our valuable guest"><meta property="og:type" content="website"><meta property="og:image" content="og.jpg"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#0f3d2e;--g2:#175a43;--gold:#d4af37;--cream:#f8f1de}
+*{box-sizing:border-box;margin:0}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--g);overflow-x:hidden}
+.ar{font-family:'Noto Naskh Arabic','Amiri','Scheherazade New',serif;direction:rtl}
+#curtain{position:fixed;inset:0;z-index:50;display:flex;cursor:pointer;transition:opacity .6s .9s}
+#curtain .l,#curtain .r{flex:1;background:repeating-linear-gradient(90deg,var(--g) 0 14px,var(--g2) 14px 22px);transition:transform 1.4s cubic-bezier(.7,0,.3,1);position:relative}
+#curtain .l{border-right:3px solid var(--gold)}#curtain .r{border-left:3px solid var(--gold)}
+#curtain .t{position:absolute;top:36%;left:0;right:0;text-align:center;color:var(--gold);z-index:2;pointer-events:none}
+#curtain .t b{display:block;font-size:34px;margin-bottom:10px}#curtain .t small{letter-spacing:3px;font-size:12px}
+#curtain.open .l{transform:translateX(-100%)}#curtain.open .r{transform:translateX(100%)}#curtain.open{opacity:0;pointer-events:none}#curtain.open .t{opacity:0}
+section{min-height:100vh;padding:60px 26px;text-align:center;border-bottom:1px solid #d9cfae;position:relative}
+.frame{border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:5px;padding:34px 18px;border-radius:6px;background:rgba(255,255,255,.35)}
+h1{font-size:40px;font-weight:400;color:var(--g);margin:10px 0}h1 i{color:var(--gold);font-size:30px}
+h2{font-size:26px;font-weight:400;margin-bottom:6px}
+.lab{letter-spacing:3px;font-size:11px;color:#8a7424;text-transform:uppercase;margin:6px 0 14px}
+.bism{font-size:30px;color:var(--gold);margin-bottom:8px}
+.seals{display:flex;justify-content:center;gap:26px;margin:26px 0}
+.seal{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f3d97a,#b8901f);color:var(--g);display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;box-shadow:0 4px 10px #0003;border:3px double #fff8;transition:transform .5s,opacity .5s}
+.seal.done{transform:scale(0);opacity:0}
+#dateBox{opacity:0;transition:opacity 1s;margin-top:10px}#dateBox.show{opacity:1}
+.ph{display:inline-block;background:#fff3b0;border:1px dashed #b8901f;color:#6b5500;padding:3px 9px;border-radius:4px;font-size:13px;font-family:monospace}
+.cd{display:flex;justify-content:center;gap:10px;margin:18px 0}.cd div{border:1px solid var(--gold);border-radius:6px;padding:10px 8px;min-width:62px;background:#fff8}
+.cd b{display:block;font-size:26px}.cd span{font-size:10px;letter-spacing:2px;color:#8a7424}
+.arch{width:200px;height:150px;margin:10px auto}
+.dress{display:flex;justify-content:center;gap:22px;margin:20px 0}.dress figure{width:120px}
+.dress svg{width:120px;height:190px}.dress figcaption{font-size:13px;margin-top:6px}
+.card{background:#fff8;border:1px solid var(--gold);border-radius:8px;padding:14px;margin:12px 0;text-align:left;font-size:15px}
+#music{position:fixed;right:14px;bottom:14px;z-index:40;width:44px;height:44px;border-radius:50%;background:var(--g);color:var(--gold);border:2px solid var(--gold);font-size:20px;cursor:pointer}
+.note{position:fixed;left:0;right:0;top:0;background:#fff3b0;color:#6b5500;font:11px monospace;text-align:center;padding:3px;z-index:60}
+</style></head><body>
+<div id="curtain" onclick="openC()"><div class="l"></div><div class="r"></div>
+<div class="t"><b class="ar">بسم الله الرحمن الرحيم</b><small>TAP TO OPEN</small></div></div>
+<audio id="aud" src="madeh.mp3" loop preload="auto"></audio><button id="music" onclick="tm()">♪</button>
+
+<section id="s1" style="padding:50px 12px 20px"><img src="front.jpg" style="width:100%;border-radius:6px;box-shadow:0 4px 14px #0003"><p class="lab" style="margin-top:18px">Scroll</p></section>
+<section style="padding:40px 12px"><div class="lab">Reveal</div><p style="margin-bottom:6px">Tap both seals to open the invitation</p>
+<div class="seals" id="seals"><div class="seal" onclick="seal(this)">Tap</div><div class="seal" onclick="seal(this)">Tap</div></div>
+<div id="dateBox"><img src="inner.jpg" style="width:100%;border-radius:6px;box-shadow:0 4px 14px #0003"></div></section>
+<script>
+function tm(){var a=document.getElementById('aud'),b=document.getElementById('music');if(a.paused){a.play();b.textContent='♪'}else{a.pause();b.textContent='✕'}}
+function openC(){var a=document.getElementById('aud');a.play().catch(function(){});document.getElementById('curtain').classList.add('open')}
+function seal(e){e.classList.add('done');if(document.querySelectorAll('.seal.done').length==2){document.getElementById('dateBox').classList.add('show');document.getElementById('seals').style.display='none'}}
+</script></body></html>
